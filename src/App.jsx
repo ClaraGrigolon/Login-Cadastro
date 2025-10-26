@@ -1,44 +1,51 @@
-import { useState } from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
-import './App.css'
+import google from './assets/google.png'
+import face from './assets/face.png'
+import apple from './assets/apple.png'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div className='principal'>
-        <header>
-          <h1>Login</h1>
-        </header>
+      <div className="container">
+        <div className="conteudo">
 
-        <main>
-          <div className='inputs'>
-            <p>Usuário</p>
-            <input type="text" />
-            <p>Senha</p>
-            <input type="password" />
+            <div className="inputs">
+              <header>
+                <h1>Login</h1>
+              </header>
+
+              <p className='log'>Usuário:</p>
+              <div className='inputs-container'>
+                <input type="text"/>
+              </div>
+              <p className='log'>Senha:</p>
+              <div className='inputs-container'>
+                <input type="password" />
+              </div>
+
+              <div className="conectado"> 
+                <input type="checkbox" id="Manter Conectado" />
+                <label htmlFor="Manter Conectado">Manter Conectado</label>
+                <a href="#">Esqueceu a Senha?</a>
+              </div>
+
+                
+              
+              <button>Entrar</button>
+              <p className='opcoes'>Entrar com</p>
+              <div className='icons'>
+                <img src={face} alt="" className='face' />
+                <img src={google} alt="" className='google'/>
+                <img src={apple} alt="" className='apple' />
+              </div>
+              <p className='inscrever'>Não Tem Conta? <Link to="/cadastro">Inscreva-se</Link></p>
           </div>
-
-          <a href="#">Esqueceu a senha?</a>
-          <input type="checkbox" name="" id="conectado" />
-          <button>ENTRAR</button>
-
-          <p>Logar com</p>
-          <div class="login-opcoes">
-            <div class="bt-login" id="bt-face" ></div>
-            <div class="bt-login" id="bt-google" ></div>
-            <div class="bt-login" id="bt-apple" ></div>
-          </div>
-
-          <small>Não tem conta?
-            <Link to="/cadastro">Ir para o Cadastro</Link>
-          </small>
-        </main>
-
+        </div>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
